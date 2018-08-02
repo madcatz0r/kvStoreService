@@ -7,7 +7,7 @@
 map[string]interface{} + RWMutex при количестве доступных потоков <=4,
 sync.Map - >4
 
-###TODO:
+### TODO:
 * Опробовать кастомный кодек
 * Эксперимент с google/protobuf/any.proto
 * Перевести на map[interface{}]interface{}
