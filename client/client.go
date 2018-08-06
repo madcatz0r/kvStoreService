@@ -3,7 +3,7 @@ package client
 import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	p "proto"
+	p "github.com/madcatz0r/kvStoreService/proto"
 )
 
 // TODO: custom codec && ? || any type

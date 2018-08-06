@@ -7,9 +7,9 @@ import (
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	p "proto"
+	p "github.com/madcatz0r/kvStoreService/proto"
 	"runtime"
-	"storage"
+	"github.com/madcatz0r/kvStoreService/storage"
 )
 
 type kvServer struct {

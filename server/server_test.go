@@ -2,7 +2,7 @@ package main_test
 
 import (
 	"bytes"
-	c "client"
+	c "github.com/madcatz0r/kvStoreService/client"
 	"encoding/gob"
 	"fmt"
 	"google.golang.org/grpc"
