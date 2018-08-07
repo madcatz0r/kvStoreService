@@ -5,6 +5,12 @@ import (
 	"sync"
 )
 
+func NewRWLockMap() *RWLockMap {
+	rwMap := &RWLockMap{}
+	rwMap.internal = make(map[string]interface{})
+	return rwMap
+}
+
 type RWLockMap struct {
 	sync.RWMutex
 	internal map[string]interface{}
@@ -21,11 +27,11 @@ func (m *RWLockMap) Get(key string) ([]byte, error) {
 	res, ok := m.internal[key]
 	m.RUnlock()
 	if !ok {
-		return []byte{}, fmt.Errorf("key %v not found", key)
+		return nil, fmt.Errorf("key %v not found", key)
 	}
 	val, ok := res.([]byte)
 	if !ok {
-		return []byte{}, fmt.Errorf("unexpected cast error, key: %v, value: %+v", key, res)
+		return nil, fmt.Errorf("unexpected cast error, key: %v, value: %#v", key, res)
 	}
 	return val, nil
 }

@@ -21,7 +21,7 @@ func (s *SyncMap) Get(key string) ([]byte, error) {
 	}
 	val, ok := value.([]byte)
 	if !ok {
-		return nil, fmt.Errorf("unexpected cast error, key: %v, value: %+v", key, value)
+		return nil, fmt.Errorf("unexpected cast error, key: %v, value: %#v", key, value)
 	}
 	return val, nil
 }
@@ -29,7 +29,7 @@ func (s *SyncMap) Get(key string) ([]byte, error) {
 func (s *SyncMap) Delete(key string) error {
 	_, ok := s.Load(key)
 	if !ok {
-		return fmt.Errorf("key %v does't exist", key)
+		return fmt.Errorf("key %v not found", key)
 	}
 	s.Map.Delete(key)
 	return nil

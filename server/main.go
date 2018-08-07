@@ -20,7 +20,7 @@ func NewKvServer() *kvServer {
 	if runtime.NumCPU() > 4 {
 		return &kvServer{storage: &storage.SyncMap{}}
 	}
-	return &kvServer{storage: &storage.RWLockMap{}}
+	return &kvServer{storage: storage.NewRWLockMap()}
 }
 
 func (k *kvServer) Put(ctx context.Context, req *p.PutRequest) (*p.Empty, error) {
